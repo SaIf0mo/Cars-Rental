@@ -1,7 +1,7 @@
 import React from "react";
 import { Calendar, Clock10, MapPin, Search } from "lucide-react";
 import { Link } from "react-router-dom";
-import { stats } from "../Data/CarsData";
+import { stats } from "../Data/CarsData.jsx";
 
 export default function Home() {
   return (
