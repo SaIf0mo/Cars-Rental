@@ -1,22 +1,36 @@
 import React, { useState } from "react";
 import { Mail, Lock, User, Car } from "lucide-react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaGoogle } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
     <section className="h-screen px-4 py-14 flex flex-col items-center justify-center bg-gradient-to-br from-blue-400 to-blue-700">
       {/* LOgo */}
-      <div className="text-center mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16"
+      >
         <div className="text-white text-3xl font-bold flex justify-center items-center gap-2">
           <Car className="w-10 h-10" />
           <span>RentCar</span>
         </div>
-      </div>
+      </motion.div>
       {/* Header */}
-      <div className="w-full max-w-md font-bold bg-gray-100 rounded-xl shadow-lg p-8 py-5">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-md font-bold bg-gray-100 rounded-xl shadow-lg p-8 py-5"
+      >
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-1">
           Welcome Back
         </h2>
@@ -83,12 +97,19 @@ export default function Login() {
             </Link>
           </div>
           {/* Submit */}
-          <button
+          <motion.button
+            onClick={(e) => {
+              e.preventDefault();
+              login();
+              navigate("/");
+            }}
             type="submit"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             className="w-full cursor-pointer bg-blue-400 font-medium text-white py-2 px-4 rounded-lg hover:bg-blue-600"
           >
             Sign in
-          </button>
+          </motion.button>
           {/* Divider */}
           <div className="flex items-center justify-between gap-6 my-6">
             <span className="border-t border-gray-300 w-full"></span>
@@ -99,18 +120,33 @@ export default function Login() {
           </div>
           {/* Social Login */}
           <div className="flex gap-4">
-            <button
-              className="w-1/2 flex cursor-pointer items-center justify-center border border-gray-300
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-1/3 flex cursor-pointer items-center justify-center border border-gray-300
              py-2 rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
             >
               <FaFacebook className="mr-2" />
-            </button>
-            <button
-              className="w-1/2 flex cursor-pointer items-center justify-center border border-gray-300
+            </motion.button>
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-1/3 flex cursor-pointer items-center justify-center border border-gray-300
              py-2 rounded-md hover:bg-pink-500 hover:text-white transition duration-300"
             >
               <FaInstagram className="mr-2" />
-            </button>
+            </motion.button>
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-1/3 flex cursor-pointer items-center justify-center border border-gray-300
+             py-2 rounded-md hover:bg-red-500 hover:text-white transition duration-300"
+            >
+              <FaGoogle className="mr-2" />
+            </motion.button>
           </div>
 
           {/* Sign up Link */}
@@ -124,7 +160,7 @@ export default function Login() {
             </Link>
           </p>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 }

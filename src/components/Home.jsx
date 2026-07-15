@@ -2,20 +2,36 @@ import React from "react";
 import { Calendar, Clock10, MapPin, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { stats } from "../Data/CarsData.jsx";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="bg-blue-600 flex items-center justify-center h-screen">
+    <div className=" bg-blue-600 flex items-center justify-center">
       <div className="container mx-auto py-16 md:py-22 text-center">
-        <h1 className="font-bold text-3xl md:text-4xl text-white capitalize">
-          Find Your Perfect{" "}
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="font-bold text-3xl md:text-4xl text-white capitalize px-1"
+        >
+          Find Your Perfect
           <span className="text-yellow-300 font-serif">Rental Car</span>
-        </h1>
-        <p className="my-4 text-lg md:text-xl text-white">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="my-4 text-lg md:text-xl text-white"
+        >
           Discover amazing deals on quality vehicles. Book now and drive away
           with confidence
-        </p>
-        <div className="w-full bg-white rounded-xl shadow-md py-8 px-5 text-center">
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="w-full bg-white rounded-xl shadow-md py-8 px-5 text-center"
+        >
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center gap-3">
             <div className="flex flex-col items-center gap-2">
               <label
@@ -89,13 +105,19 @@ export default function Home() {
           >
             <Search className="w-5 h-5" /> Search
           </Link>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center gap-3 mt-12">
-          {stats.map((stat) => (
-            <div className="flex items-center gap-4 flex-col hover:shadow-lg pb-4">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+              className="flex items-center gap-4 flex-col hover:shadow-lg pb-4"
+            >
               <h1 className="text-3xl font-bold text-white">{stat.value}</h1>
               <p className="text-lg font-medium text-gray-200">{stat.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
