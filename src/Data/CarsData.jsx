@@ -4,10 +4,20 @@ import audi from "../assets/audi.jpg"
 import toyota from "../assets/toyota.jpg"
 import kia from "../assets/kia.jpg"
 import ford from "../assets/ford.jpg"
+import {
+  Zap,
+  Clock4,
+  CreditCard,
+  MapPin,
+  Headphones,
+  Users,
+  Shield,
+  FileBadge,
+} from "lucide-react";
 
 export const navLinks = [
   { id: 1, label: "Home", path: "/" },
-  { id: 2, label: "Cars", path: "/Car" },
+  { id: 2, label: "Cars", path: "/Cars" },
   { id: 3, label: "About", path: "/About" },
   { id: 4, label: "Contact Us", path: "/ContactUs" },
 ];
@@ -19,9 +29,47 @@ export const stats = [
   { id: 4, value: "97%", label: "Satisfaction" },
 ];
 
-const titals = [
-  " Find Your Perfect Rental Car",
-  "Discover amazing deals on quality vehicles. Book now and drive away with confidence.",
+export const features = [
+  {
+    title: 'Fully Insured',
+    description: 'All our vehicles come with comprehensive insurance coverage for your peace of mind.',
+    icon: <Shield className='w-8 h-8' />,
+  },
+  {
+    title: '24/7 Service',
+    description: 'Round-the-clock customer support and roadside assistance whenever you need it.',
+    icon: <Clock4 className='w-8 h-8' />,
+  },
+  {
+    title: 'Easy Payment',
+    description: 'Secure online payments with multiple payment options and instant confirmation.',
+    icon: <CreditCard className='w-8 h-8' />,
+  },
+  {
+    title: 'Multiple Locations',
+    description: 'Pick up and drop off at any of our 50+ convenient locations across the country.',
+    icon: <MapPin className='w-8 h-8' />,
+  },
+  {
+    title: 'Expert Support',
+    description: 'Our dedicated team is here to help you find the perfect vehicle for your needs.',
+    icon: <Headphones className='w-8 h-8' />,
+  },
+  {
+    title: 'Premium Quality',
+    description: 'All vehicles are regularly maintained and meet our high-quality standards.',
+    icon: <FileBadge className='w-8 h-8' />,
+  },
+  {
+    title: 'Trusted by Thousands',
+    description: 'Join over 100,000 satisfied customers who trust us with their transportation needs.',
+    icon: <Users className='w-8 h-8' />,
+  },
+  {
+    title: 'Instant Booking',
+    description: 'Book your car in just a few clicks and get instant confirmation via email.',
+    icon: <Zap className='w-8 h-8' />,
+  },
 ];
 
 // THe car data Array ::-
