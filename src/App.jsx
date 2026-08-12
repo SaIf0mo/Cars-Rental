@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Cars from "./components/Cars";
-import ContactUS from "./components/ContactUS";
+import ContactUs from "./components/ContactUs";
 import Layout from "./components/Layout";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Cars" element={<Cars />} />
           <Route path="/About" element={<About />} />
-          <Route path="/ContactUs" element={<ContactUS />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/VideoSection" element={<VideoSection />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Route>
